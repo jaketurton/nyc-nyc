@@ -1,8 +1,3 @@
-// local dev environment code - DO NOT PASTE
-var $page = $('body');
-var $window = $(window);
-// ----------------- //
-
 
 window.onload = function ()
 {
@@ -30,13 +25,3 @@ window.onload = function ()
 
   });
 }
-// video2.play();
-// video3.play();
-//
-// video3.onended = function(e) {
-//     console.log('Video 3 Ended');
-//
-//     video1.play();
-//     video2.play();
-//     video3.play();
-// };
