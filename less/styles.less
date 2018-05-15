@@ -1,0 +1,141 @@
+@transitionTimeIn: 4s;
+@transitionTimeOut: 0.3s;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// flex mixins
+// Flexbox display
+// flex or inline-flex
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+.flex-direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+.align-items(@align: stretch) {
+	-webkit-align-items: @align;
+		-ms-align-items: @align;
+			align-items: @align;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+.flex-grow(@grow: 0) {
+	-webkit-flex-grow: @grow;
+		-ms-flex-grow: @grow;
+			flex-grow: @grow;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+.justify-content(@justify: flex-start) {
+	-webkit-justify-content: @justify;
+		-ms-justify-content: @justify;
+			justify-content: @justify;
+  }
+
+body
+{
+	background-color: #fff;
+	height: 100%;
+	min-height: calc(~"100vh");
+	transition: @transitionTimeOut;
+	padding-top: 40px;
+
+	@media (min-width: 768px) {
+		padding-top: 60px;
+	}
+
+	&.active
+	{
+		background-color: #000;
+		transition: @transitionTimeIn;
+	}
+}
+
+.container
+{
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+video.video1
+{
+	max-width: 720px;
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	// box-shadow: 0 0 100px #000;
+	transition: @transitionTimeOut;
+	filter: brightness(80%);
+	border-width: 5px;
+	border-color: #fff;
+	box-sizing: border-box;
+
+	&.active {
+		max-width: 900px;
+		transition: @transitionTimeIn;
+    filter: brightness(140%);
+		border-color: #fff;
+		border-style: solid;
+		border-width: 5px;
+	}
+
+}
